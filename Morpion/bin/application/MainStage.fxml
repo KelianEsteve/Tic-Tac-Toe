@@ -12,7 +12,7 @@
           <Menu mnemonicParsing="false" text="IA">
             <items>
               <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#viewSettings" text="Settings" />
-                  <MenuItem mnemonicParsing="false" text="Models" />
+              <MenuItem fx:id="learning" mnemonicParsing="false" onAction="#viewLearning" text="Models" />
             </items>
           </Menu>
         </menus>

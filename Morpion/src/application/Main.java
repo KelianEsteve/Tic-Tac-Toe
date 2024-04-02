@@ -20,15 +20,25 @@ import javafx.util.Duration;
 public class Main extends Application {
 	
 	private SettingsController settingsController;
+	private LearningController learningController;
 
 	@FXML
 	private MenuItem settings;
+	
+	@FXML
+	private MenuItem learning;
 
 
 	@FXML
 	private void viewSettings() throws IOException{
 		this.settingsController = new SettingsController();
 		this.settingsController.viewSettings();
+	}
+	
+	@FXML
+	private void viewLearning() throws IOException{
+		this.learningController = new LearningController();
+		this.learningController.viewLearning();
 	}
 
 	
