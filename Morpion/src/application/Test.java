@@ -88,6 +88,7 @@ public class Test {
 				error += net.backPropagate(c.in, c.out);
 
 				if ( i % 10000 == 0 && verbose) System.out.println("Error at step "+i+" is "+ (error/(double)i));
+				System.out.println("Epoch: " + i);
 			}
 			if ( verbose ) 
 				System.out.println("Learning completed!");
