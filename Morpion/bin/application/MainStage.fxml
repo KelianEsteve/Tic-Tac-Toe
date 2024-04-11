@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main" style="-fx-background-color: #240c76;" >
    <top>
       <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
         <menus>
@@ -22,8 +22,8 @@
    </top>
    <center>
       <VBox alignment="CENTER" spacing="20">
-         <Button fx:id="humanVsHuman" onAction="#startHumanVsHumanGame" text="Humain contre humain" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20; " prefWidth="250" />
-         <Button fx:id="humanVsAI" onAction="#startHumanVsAIGame" text="Humain vs IA" style="-fx-background-color: #008CBA; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20;" prefWidth="250" />
+         <Button fx:id="humanVsHuman" onAction="#startHumanVsHumanGame" text="Humain contre humain" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20; " prefWidth="250" />
+         <Button fx:id="humanVsAI" onAction="#startHumanVsAIGame" text="Humain vs IA" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20;" prefWidth="250" />
       </VBox>
    </center>
   

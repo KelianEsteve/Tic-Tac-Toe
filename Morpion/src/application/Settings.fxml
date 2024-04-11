@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SettingsController">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SettingsController" style="-fx-background-color: #240c76;">
    <left>
       <VBox prefHeight="289.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
    </left>
@@ -51,8 +51,8 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="585.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button fx:id="validateButton" mnemonicParsing="false" text="Valider" onAction="#validateSettings"/>
-            <Button fx:id="closeButton" mnemonicParsing="false" text="Fermer" onAction="#closeSettings"/>
+          <Button fx:id="validateButton" mnemonicParsing="false" text="Valider" onAction="#validateSettings" style="-fx-background-color: #831187;"/>
+            <Button fx:id="closeButton" mnemonicParsing="false" text="Fermer" onAction="#closeSettings" style="-fx-background-color: #831187;" />
         </buttons>
       </ButtonBar>
    </bottom>

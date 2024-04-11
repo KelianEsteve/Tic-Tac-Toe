@@ -24,7 +24,7 @@ public class Test {
 			//
 			ConfigFileLoader cfl = new ConfigFileLoader();
 			cfl.loadConfigFile("./resources/config.txt");
-			Config config = cfl.get("F");
+			Config config = cfl.get("D");
 			System.out.println("Test.main() : "+config);
 			//
 			//TRAIN THE MODEL ...

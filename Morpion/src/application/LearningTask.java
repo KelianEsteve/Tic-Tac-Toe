@@ -6,6 +6,8 @@ import ai.SigmoidalTransferFunction;
 import javafx.concurrent.Task;
 import javafx.scene.control.ProgressBar;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 public class LearningTask extends Task<MultiLayerPerceptron> {
@@ -70,6 +72,17 @@ public class LearningTask extends Task<MultiLayerPerceptron> {
 
         if (verbose)
             System.out.println("Learning completed!");
+        
+        try {
+            FileOutputStream fileOut = new FileOutputStream("./resources/models/model.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(net);
+            out.close();
+            fileOut.close();
+            System.out.println("Le modèle a été sauvegardé avec succès.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return net;
     }

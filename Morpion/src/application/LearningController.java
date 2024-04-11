@@ -18,6 +18,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public class LearningController {
 	
@@ -60,7 +62,7 @@ public class LearningController {
             // LOAD CONFIG ...
             ConfigFileLoader cfl = new ConfigFileLoader();
             cfl.loadConfigFile("./resources/config.txt");
-            Config config = cfl.get("F");
+            Config config = cfl.get("D");
 
             // TRAIN THE MODEL ...
             double epochs = 10000;
@@ -209,6 +211,18 @@ public class LearningController {
 			}
 			if ( verbose ) 
 				System.out.println("Learning completed!");
+			
+			// Save the trained model
+	        try {
+	            FileOutputStream fileOut = new FileOutputStream("./resources/models/model.ser");
+	            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	            out.writeObject(net);
+	            out.close();
+	            fileOut.close();
+	            System.out.println("Le modèle a été sauvegardé avec succès.");
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
 
 			return net ;
 		} 
