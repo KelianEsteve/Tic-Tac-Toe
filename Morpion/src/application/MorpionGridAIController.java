@@ -1,15 +1,23 @@
 package application;
 
 import javafx.scene.input.MouseEvent;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.scene.layout.GridPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ai.MultiLayerPerceptron;
 import ai.Coup;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
 
@@ -46,6 +54,29 @@ public class MorpionGridAIController {
 
     @FXML
     private ImageView cell22Image;
+    
+    @FXML
+    private Button menuButton;
+    
+    
+    @FXML
+    private void backToMenu() {
+    	// Chargement de la vue du menu depuis le fichier FXML
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
+            Parent root = loader.load();
+
+            //Création de la nouvelle scène 
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) menuButton.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
     @FXML
     private void initialize() {
         // Initialisation de la grille avec des cases vides ('\0')
@@ -140,6 +171,12 @@ public class MorpionGridAIController {
             if (grid[row][col] == '\0') {
                 grid[row][col] = currentPlayer;
                 cellImage.setImage(new Image(getClass().getResourceAsStream("cross.png")));
+                // Créer une transition de fondu pour faire apparaître la nouvelle image progressivement
+                FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
+                fadeTransition.setFromValue(0.0);
+                fadeTransition.setToValue(1.0);
+                fadeTransition.play();
+                
 
                 // Vérifier s'il y a un vainqueur ou un match nul après le coup du joueur humain
                 if (checkForWinner(currentPlayer)) {
@@ -169,6 +206,11 @@ public class MorpionGridAIController {
         grid[row][col] = currentPlayer;
         ImageView cellImage = getCellImageView(row, col);
         cellImage.setImage(new Image(getClass().getResourceAsStream("circle.png")));
+        // Créer une transition de fondu pour faire apparaître la nouvelle image progressivement
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
+        fadeTransition.setFromValue(0.0);
+        fadeTransition.setToValue(1.0);
+        fadeTransition.play();
 
         //vérification d'un vainqueur ou de match nul
         if (checkForWinner(currentPlayer)) {
