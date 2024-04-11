@@ -101,6 +101,8 @@ public class MorpionGridAIController {
         cell21Image.setImage(image);
         cell22Image.setImage(image);
         
+        currentPlayer = 'X';
+        
         
     }
 
@@ -193,7 +195,6 @@ public class MorpionGridAIController {
         }
     }
 
-    // Méthode pour gérer le tour de l'ordinateur
     private void playComputerTurn() {
         //utilisation le modèle pour prédire le coup
         double[] input = encodeGrid();

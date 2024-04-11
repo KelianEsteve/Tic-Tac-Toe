@@ -9,6 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Modality;
+import javafx.scene.layout.AnchorPane;
+
 
 public class Main extends Application {
     
@@ -34,9 +37,24 @@ public class Main extends Application {
     }
     
     @FXML
-    private void viewLearning() throws IOException{
-        this.learningController = new LearningController();
-        this.learningController.viewLearning();
+    private void viewLearning() throws IOException {
+        // Charger la vue XML contenant la liste des modèles
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Models.fxml"));
+        AnchorPane root = loader.load();
+        
+        // Créer une nouvelle scène et y ajouter la vue chargée
+        Scene scene = new Scene(root);
+        
+        // Créer un nouveau stage (fenêtre) pour afficher la vue
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Liste des modèles");
+        
+        // Définir le mode de la fenêtre comme modale (bloque les interactions avec la fenêtre principale)
+        stage.initModality(Modality.APPLICATION_MODAL);
+        
+        // Afficher la fenêtre
+        stage.showAndWait();
     }
 
 
