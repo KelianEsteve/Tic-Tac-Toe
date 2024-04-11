@@ -59,8 +59,20 @@ public class Main extends Application {
     
     @FXML
     private void startHumanVsAIGame() {
-        // Code pour démarrer un jeu Humain vs IA
+        try {
+            // Chargement de la vue de la grille de morpion AI depuis le fichier FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MorpionGridAI.fxml"));
+            Parent root = loader.load();
+            MorpionGridAIController controller = loader.getController();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) humanVsAI.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
     
     @Override
     public void start(Stage primaryStage) throws IOException {
