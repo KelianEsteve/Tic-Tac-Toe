@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.MorpionGridController"
+            style="-fx-background-color: #ef9af2;">
+    <top>
+    	<HBox alignment="CENTER">
+        	<Label text="C'est le tour du joueur X" fx:id="turnLabel" style="-fx-font-size: 20px;"/>
+    	</HBox>
+	</top>
+    
+    <center>
+        <GridPane fx:id="gridPane" alignment="CENTER">
+            <VBox spacing="5">
+                <HBox spacing="5">
+                    <!-- Première ligne -->
+                    <ImageView fx:id="cell00Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="0" GridPane.columnIndex="0" onMouseClicked="#handleCellClick"/>
+                    
+                    <Rectangle width="5" height="100" fill="BLACK"/>
+                    <ImageView fx:id="cell01Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="0" GridPane.columnIndex="1" onMouseClicked="#handleCellClick"/>
+                    <Rectangle width="5" height="100" fill="BLACK"/>
+                    <ImageView fx:id="cell02Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="0" GridPane.columnIndex="2" onMouseClicked="#handleCellClick"/>
+                </HBox>
+                <Rectangle width="310" height="5" fill="BLACK"/>
+                <HBox spacing="5">
+                    <ImageView fx:id="cell10Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="1" GridPane.columnIndex="0" onMouseClicked="#handleCellClick"/>
+                    <Rectangle width="5" height="100" fill="BLACK"/>
+                    <ImageView fx:id="cell11Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="1" GridPane.columnIndex="1" onMouseClicked="#handleCellClick"/>
+                    <Rectangle width="5" height="100" fill="BLACK"/>
+                    <ImageView fx:id="cell12Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="1" GridPane.columnIndex="2" onMouseClicked="#handleCellClick"/>
+                </HBox>
+                <Rectangle width="310" height="5" fill="BLACK"/>
+                <HBox spacing="5">
+                    <ImageView fx:id="cell20Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="2" GridPane.columnIndex="0" onMouseClicked="#handleCellClick"/>
+                    <Rectangle width="5" height="100" fill="BLACK"/>
+                    <ImageView fx:id="cell21Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="2" GridPane.columnIndex="1" onMouseClicked="#handleCellClick"/>
+                    <Rectangle width="5" height="100" fill="BLACK"/>
+                    <ImageView fx:id="cell22Image" fitWidth="100" fitHeight="100" GridPane.rowIndex="2" GridPane.columnIndex="2" onMouseClicked="#handleCellClick"/>
+                </HBox>
+            </VBox>
+        </GridPane>
+    </center>
+</BorderPane>
+
+
+

@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main" style="-fx-background-color: #240c76;" >
    <top>
       <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="IA">
             <items>
               <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#viewSettings" text="Settings" />
-                  <MenuItem mnemonicParsing="false" text="Models" />
+              <MenuItem fx:id="learning" mnemonicParsing="false" onAction="#viewModels" text="Models" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
    </top>
+   <center>
+      <VBox alignment="CENTER" spacing="20">
+         <Button fx:id="humanVsHuman" onAction="#startHumanVsHumanGame" text="Humain contre humain" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20; " prefWidth="250" />
+         <Button fx:id="humanVsAI" onAction="#chooseDifficulty" text="Humain vs IA" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20;" prefWidth="250" />
+      </VBox>
+   </center>
+  
+      
+   
 </BorderPane>
+

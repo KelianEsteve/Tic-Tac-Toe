@@ -79,7 +79,7 @@ public class Test {
 				System.out.println("---");
 			}
 			//TRAINING ...
-			for(int i = 0; i < epochs; i++){
+			for(int i = 1; i < epochs; i++){
 
 				Coup c = null ;
 				while ( c == null )
@@ -88,6 +88,7 @@ public class Test {
 				error += net.backPropagate(c.in, c.out);
 
 				if ( i % 10000 == 0 && verbose) System.out.println("Error at step "+i+" is "+ (error/(double)i));
+		
 			}
 			if ( verbose ) 
 				System.out.println("Learning completed!");
