@@ -52,6 +52,7 @@ public class DifficultyController {
                 Parent root = loader.load();
                 MorpionGridAIController controller = loader.getController();
                 controller.setDifficulty("F");
+                controller.initializeModelAndDifficulty();
                 Scene scene = new Scene(root);
 
                 Stage stage = (Stage) btnFacile.getScene().getWindow();
@@ -102,6 +103,7 @@ public class DifficultyController {
                 Parent root = loader.load();
                 MorpionGridAIController controller = loader.getController();
                 controller.setDifficulty("M");
+                controller.initializeModelAndDifficulty();
                 Scene scene = new Scene(root);
 
                 Stage stage = (Stage) btnFacile.getScene().getWindow();
@@ -151,6 +153,7 @@ public class DifficultyController {
                 Parent root = loader.load();
                 MorpionGridAIController controller = loader.getController();
                 controller.setDifficulty("D");
+                controller.initializeModelAndDifficulty();
                 Scene scene = new Scene(root);
 
                 Stage stage = (Stage) btnDifficile.getScene().getWindow();

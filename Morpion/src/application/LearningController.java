@@ -100,6 +100,7 @@ public class LearningController {
                     Parent root = loader.load();
                     MorpionGridAIController controller = loader.getController();
                     controller.setDifficulty(this.difficulty);
+                    controller.initializeModelAndDifficulty();
                     Scene scene = new Scene(root);
                     Scene currentScene = progressBar.getScene();
                     Stage stage = (Stage) currentScene.getWindow();

@@ -92,29 +92,19 @@ public class MorpionGridAIController {
 
     // Ajoutez un constructeur qui charge le modèle à partir du fichier .ser
     public MorpionGridAIController() {
+    	
+    }
+    
+    public void initializeModelAndDifficulty() {
     	ConfigFileLoader cfl = new ConfigFileLoader();
         cfl.loadConfigFile("./resources/config.txt");
-        int h = 0;
-        double lr = 0.0;
-        int l = 0;
-    	if(this.difficulty == "F") {
-            Config config = cfl.get("F");  
-            h = config.hiddenLayerSize;
-            lr = config.learningRate;
-            l = config.numberOfhiddenLayers;
-    	}
-    	else if(this.difficulty == "M") {
-            Config config = cfl.get("M");
-            h = config.hiddenLayerSize;
-            lr = config.learningRate;
-            l = config.numberOfhiddenLayers;
-    	} else {
-    		Config config = cfl.get("D");
-            h = config.hiddenLayerSize;
-            lr = config.learningRate;
-            l = config.numberOfhiddenLayers;
-    	}
-    	
+        System.out.println(this.difficulty);
+        
+        Config config = cfl.get(this.difficulty);  
+        int h = config.hiddenLayerSize;
+        double lr = config.learningRate;
+        int l = config.numberOfhiddenLayers;
+
     	String fileName = "model_" + h + "_" + lr + "_" + l + ".ser";
         File file = new File("./resources/models/" + fileName);
         
