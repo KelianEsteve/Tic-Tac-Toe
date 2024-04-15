@@ -1,6 +1,8 @@
 package application;
 
 import javafx.scene.input.MouseEvent;
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.shape.Rectangle;
@@ -15,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import java.io.IOException;
+
 
 import javafx.fxml.FXMLLoader;
 
@@ -52,6 +55,22 @@ public class MorpionGridController {
     
     @FXML
     private Label turnLabel;
+    
+    @FXML
+    private Button btnRetour;
+    
+    @FXML
+    private void retour() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("MainStage.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnRetour.getScene().getWindow(); 
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     @FXML
     private void initialize() {
@@ -97,8 +116,16 @@ public class MorpionGridController {
             
             if (currentPlayer == 'X') {
             	cellImage.setImage(new Image(getClass().getResourceAsStream("cross.png")));
+            	FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
+                fadeTransition.setFromValue(0.0);
+                fadeTransition.setToValue(1.0);
+                fadeTransition.play();
             } else {
             	cellImage.setImage(new Image(getClass().getResourceAsStream("circle.png")));
+            	FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
+                fadeTransition.setFromValue(0.0);
+                fadeTransition.setToValue(1.0);
+                fadeTransition.play();
             }
 
             if (checkForWinner(currentPlayer)) {

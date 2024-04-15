@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main" style="-fx-background-color: #240c76;" >
+<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="700.0" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main" style="-fx-background-color: #240c76;" >
    <top>
       <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
         <menus>

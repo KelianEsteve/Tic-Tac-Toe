@@ -63,9 +63,16 @@ public class LearningController {
 	
 	
 	@FXML
-    public void closeLearning() {
-        Stage stage = (Stage) closeButton.getScene().getWindow();
-        stage.close();
+    private void closeLearning() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("MainStage.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) closeButton.getScene().getWindow(); 
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 	
 	

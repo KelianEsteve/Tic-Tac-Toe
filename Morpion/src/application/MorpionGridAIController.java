@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
 
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
+
 public class MorpionGridAIController {
 
     private char currentPlayer = 'X'; // 'X' ou 'O'
@@ -57,6 +60,24 @@ public class MorpionGridAIController {
 
     @FXML
     private ImageView cell22Image;
+    
+    @FXML
+    private Button btnRetour;
+    
+    @FXML
+    private void retour() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("MainStage.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnRetour.getScene().getWindow(); 
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
     @FXML
     private void initialize() {
         // Initialisation de la grille avec des cases vides ('\0')
@@ -182,6 +203,12 @@ public class MorpionGridAIController {
             if (grid[row][col] == '\0') {
                 grid[row][col] = currentPlayer;
                 cellImage.setImage(new Image(getClass().getResourceAsStream("cross.png")));
+                
+                //Animation fade
+                FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
+                fadeTransition.setFromValue(0.0);
+                fadeTransition.setToValue(1.0);
+                fadeTransition.play();
 
                 // Vérifier s'il y a un vainqueur ou un match nul après le coup du joueur humain
                 if (checkForWinner(currentPlayer)) {
@@ -210,6 +237,12 @@ public class MorpionGridAIController {
         grid[row][col] = currentPlayer;
         ImageView cellImage = getCellImageView(row, col);
         cellImage.setImage(new Image(getClass().getResourceAsStream("circle.png")));
+        
+        //Animation fade
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
+        fadeTransition.setFromValue(0.0);
+        fadeTransition.setToValue(1.0);
+        fadeTransition.play();
 
         //vérification d'un vainqueur ou de match nul
         if (checkForWinner(currentPlayer)) {
