@@ -26,6 +26,10 @@ import java.util.HashMap;
 import javafx.animation.FadeTransition;
 import javafx.util.Duration;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+
 public class MorpionGridAIController {
 
     private char currentPlayer = 'X'; // 'X' ou 'O'
@@ -64,6 +68,10 @@ public class MorpionGridAIController {
     @FXML
     private Button btnRetour;
     
+    private Media gridMedia;
+    
+    private MediaPlayer gridPlayer;
+    
     @FXML
     private void retour() {
         try {
@@ -88,7 +96,7 @@ public class MorpionGridAIController {
         }
         
         // Mise en place d'images "vierges" pour rendre les cases cliquable
-        Image image = new Image(getClass().getResourceAsStream("transparent.png"));
+        Image image = new Image(getClass().getResourceAsStream("Images/transparent.png"));
         
         cell00Image.setImage(image);
         cell01Image.setImage(image);
@@ -104,7 +112,9 @@ public class MorpionGridAIController {
         
         currentPlayer = 'X';
         
-        
+        String gridFilePath = getClass().getResource("Sounds/gridSound.mp3").toExternalForm();
+		gridMedia = new Media(gridFilePath);
+		gridPlayer = new MediaPlayer(gridMedia);
     }
     
     public void setDifficulty(String difficulty) {
@@ -202,7 +212,8 @@ public class MorpionGridAIController {
             // Vérification de si la case est vide
             if (grid[row][col] == '\0') {
                 grid[row][col] = currentPlayer;
-                cellImage.setImage(new Image(getClass().getResourceAsStream("cross.png")));
+                cellImage.setImage(new Image(getClass().getResourceAsStream("Images/cross.png")));
+                playGridSound();
                 
                 //Animation fade
                 FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
@@ -236,7 +247,7 @@ public class MorpionGridAIController {
         int col = predictedMove % 3;
         grid[row][col] = currentPlayer;
         ImageView cellImage = getCellImageView(row, col);
-        cellImage.setImage(new Image(getClass().getResourceAsStream("circle.png")));
+        cellImage.setImage(new Image(getClass().getResourceAsStream("Images/circle.png")));
         
         //Animation fade
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
@@ -337,6 +348,16 @@ public class MorpionGridAIController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    private void playGridSound() {
+    	gridPlayer.setOnEndOfMedia(() -> {
+    	    gridPlayer.stop(); // Arrête la lecture
+    	    gridPlayer.seek(Duration.ZERO); // Remet la tête de lecture au début
+    	    // Vous pouvez ajouter d'autres actions ici, selon vos besoins
+    	});
+    	
+    	gridPlayer.play();
     }
 
 }

@@ -17,6 +17,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import java.io.IOException;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+
 
 
 import javafx.fxml.FXMLLoader;
@@ -59,6 +63,10 @@ public class MorpionGridController {
     @FXML
     private Button btnRetour;
     
+    private Media gridMedia;
+    
+    private MediaPlayer gridPlayer;
+    
     @FXML
     private void retour() {
         try {
@@ -82,7 +90,7 @@ public class MorpionGridController {
         }
         
         // Mise en place d'images "vierges" pour rendre les cases cliquable
-        Image image = new Image(getClass().getResourceAsStream("transparent.png"));
+        Image image = new Image(getClass().getResourceAsStream("Images/transparent.png"));
         
         cell00Image.setImage(image);
         cell01Image.setImage(image);
@@ -98,7 +106,9 @@ public class MorpionGridController {
         
         updateTurnLabel();
         
-        
+        String gridFilePath = getClass().getResource("Sounds/gridSound.mp3").toExternalForm();
+		gridMedia = new Media(gridFilePath);
+		gridPlayer = new MediaPlayer(gridMedia);
     }
 
 
@@ -115,13 +125,17 @@ public class MorpionGridController {
             grid[row][col] = currentPlayer;
             
             if (currentPlayer == 'X') {
-            	cellImage.setImage(new Image(getClass().getResourceAsStream("cross.png")));
+            	cellImage.setImage(new Image(getClass().getResourceAsStream("Images/cross.png")));
+            	playGridSound();
+            	
             	FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
                 fadeTransition.setFromValue(0.0);
                 fadeTransition.setToValue(1.0);
                 fadeTransition.play();
             } else {
-            	cellImage.setImage(new Image(getClass().getResourceAsStream("circle.png")));
+            	cellImage.setImage(new Image(getClass().getResourceAsStream("Images/circle.png")));
+            	playGridSound();
+            	
             	FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), cellImage);
                 fadeTransition.setFromValue(0.0);
                 fadeTransition.setToValue(1.0);
@@ -211,4 +225,15 @@ public class MorpionGridController {
     private void resetGame() {
         initialize();
     }
+    
+    private void playGridSound() {
+    	gridPlayer.setOnEndOfMedia(() -> {
+    	    gridPlayer.stop(); // Arrête la lecture
+    	    gridPlayer.seek(Duration.ZERO); // Remet la tête de lecture au début
+    	    // Vous pouvez ajouter d'autres actions ici, selon vos besoins
+    	});
+    	
+    	gridPlayer.play();
+    }
+    
 }
