@@ -8,9 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.io.IOException;
 import java.io.File;
-import javafx.scene.effect.DropShadow;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
-public class DifficultyController {
+public class DifficultyController implements Initializable {
 
     @FXML
     private Button btnFacile;
@@ -26,6 +28,42 @@ public class DifficultyController {
     
     private SettingsController settingsController;
 	private LearningController learningController;
+	
+	
+	//lors du lancement du fichier fxml
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+        //gérer les effets sur le boutons
+		
+        btnFacile.setOnMouseEntered(e -> {
+            btnFacile.setOpacity(0.8);
+        });
+        btnFacile.setOnMouseExited(e -> {
+            btnFacile.setOpacity(1.0);
+        });
+        
+        btnMoyen.setOnMouseEntered(e -> {
+            btnMoyen.setOpacity(0.8);
+        });
+        btnMoyen.setOnMouseExited(e -> {
+            btnMoyen.setOpacity(1.0);
+        });
+        
+        btnDifficile.setOnMouseEntered(e -> {
+            btnDifficile.setOpacity(0.8);
+        });
+        btnDifficile.setOnMouseExited(e -> {
+            btnDifficile.setOpacity(1.0);
+        });
+        
+        btnRetour.setOnMouseEntered(e -> {
+            btnRetour.setOpacity(0.8);
+        });
+        btnRetour.setOnMouseExited(e -> {
+            btnRetour.setOpacity(1.0);
+        });
+    }
+
 	
 	
 
@@ -82,7 +120,7 @@ public class DifficultyController {
 
     @FXML
     private void choisirMoyen() {
-    	System.out.println("Bouton Facile cliqué !");
+    	System.out.println("Bouton Moyen cliqué !");
         
         ConfigFileLoader cfl = new ConfigFileLoader();
         cfl.loadConfigFile("./resources/config.txt");
@@ -132,7 +170,7 @@ public class DifficultyController {
 
     @FXML
     private void choisirDifficile() {
-    	System.out.println("Bouton Facile cliqué !");
+    	System.out.println("Bouton Difficile cliqué !");
         
         ConfigFileLoader cfl = new ConfigFileLoader();
         cfl.loadConfigFile("./resources/config.txt");

@@ -11,9 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Modality;
 import javafx.scene.layout.AnchorPane;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 
-public class Main extends Application {
+public class Main extends Application implements Initializable {
     
     private SettingsController settingsController;
     private LearningController learningController;
@@ -28,12 +31,34 @@ public class Main extends Application {
     private Button humanVsHuman;
     
     @FXML
-    private Button humanVsAI; 
+    private Button humanVsAI;
+    
+    
+    @Override
+	public void initialize(URL location, ResourceBundle resources) {
+        //gérer les effets sur le boutons
+		
+    	humanVsHuman.setOnMouseEntered(e -> {
+    		humanVsHuman.setOpacity(0.8);
+        });
+    	humanVsHuman.setOnMouseExited(e -> {
+    		humanVsHuman.setOpacity(1.0);
+        });
+    	
+    	humanVsAI.setOnMouseEntered(e -> {
+    		humanVsAI.setOpacity(0.8);
+        });
+    	humanVsAI.setOnMouseExited(e -> {
+    		humanVsAI.setOpacity(1.0);
+        });
+    }
+    
 
     @FXML
     private void viewSettings() throws IOException{
         this.settingsController = new SettingsController();
         this.settingsController.viewSettings();
+        
     }
     
     @FXML

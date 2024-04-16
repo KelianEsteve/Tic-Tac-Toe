@@ -72,6 +72,7 @@ public class MorpionGridAIController {
     
     private MediaPlayer gridPlayer;
     
+    
     @FXML
     private void retour() {
         try {
@@ -88,6 +89,16 @@ public class MorpionGridAIController {
     
     @FXML
     private void initialize() {
+    	
+    	//gérer les effets sur le boutons
+		
+    	btnRetour.setOnMouseEntered(e -> {
+    		btnRetour.setOpacity(0.8);
+        });
+    	btnRetour.setOnMouseExited(e -> {
+    		btnRetour.setOpacity(1.0);
+        });
+    	
         // Initialisation de la grille avec des cases vides ('\0')
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

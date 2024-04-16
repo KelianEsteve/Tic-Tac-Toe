@@ -24,8 +24,11 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import javafx.fxml.FXML;
 import javafx.concurrent.Task;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
-public class LearningController {
+public class LearningController implements Initializable {
 	
 	
 	@FXML
@@ -47,6 +50,26 @@ public class LearningController {
     public void updateText(String newText) {
         textLabel.setText(newText);
     }
+    
+    
+    @Override
+   	public void initialize(URL location, ResourceBundle resources) {
+           //gérer les effets sur le boutons
+   		
+       	closeButton.setOnMouseEntered(e -> {
+       		closeButton.setOpacity(0.8);
+           });
+       	closeButton.setOnMouseExited(e -> {
+       		closeButton.setOpacity(1.0);
+           });
+       	
+       	launchButton.setOnMouseEntered(e -> {
+       		launchButton.setOpacity(0.8);
+           });
+       	launchButton.setOnMouseExited(e -> {
+       		launchButton.setOpacity(1.0);
+           });
+       }
 	
 	
 	

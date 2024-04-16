@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -16,37 +17,56 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SettingsController {
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+
+public class SettingsController implements Initializable {
 
 	@FXML
 	private MenuItem settings;
 	@FXML
-	private TextArea f1;
+	private TextField f1;
 	@FXML
-	private TextArea f2;
+	private TextField f2;
 	@FXML
-	private TextArea f3;
+	private TextField f3;
 	@FXML
-	private TextArea m1;
+	private TextField m1;
 	@FXML
-	private TextArea m2;
+	private TextField m2;
 	@FXML
-	private TextArea m3;
+	private TextField m3;
 	@FXML
-	private TextArea d1;
+	private TextField d1;
 	@FXML
-	private TextArea d2;
+	private TextField d2;
 	@FXML
-	private TextArea d3;
+	private TextField d3;
 	@FXML
 	private Button validateButton;
 	@FXML
 	private Button closeButton;
 	
 	
-	public SettingsController() {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+        //gérer les effets sur le boutons
 		
-	}
+    	validateButton.setOnMouseEntered(e -> {
+    		validateButton.setOpacity(0.8);
+        });
+    	validateButton.setOnMouseExited(e -> {
+    		validateButton.setOpacity(1.0);
+        });
+    	
+    	closeButton.setOnMouseEntered(e -> {
+    		closeButton.setOpacity(0.8);
+        });
+    	closeButton.setOnMouseExited(e -> {
+    		closeButton.setOpacity(1.0);
+        });
+    }
 	
 	
 
@@ -144,6 +164,8 @@ public class SettingsController {
             configFile.delete();
             tempFile.renameTo(configFile);
         }
+        
+        closeSettings();
     }
 
 	
@@ -153,7 +175,7 @@ public class SettingsController {
 	    Parent settingsRoot = loader.load();
 	    SettingsController controller = loader.getController();
 	    Stage settingsStage = new Stage();
-	    settingsStage.setScene(new Scene(settingsRoot, 300, 200));
+	    settingsStage.setScene(new Scene(settingsRoot, 500, 300));
 	    settingsStage.setTitle("Settings");
 	    settingsStage.show();
 	    
