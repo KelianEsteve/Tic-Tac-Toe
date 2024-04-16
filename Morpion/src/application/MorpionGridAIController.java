@@ -72,6 +72,12 @@ public class MorpionGridAIController {
     
     private MediaPlayer gridPlayer;
     
+    @FXML
+    private ImageView logo;
+    
+    @FXML
+    private ImageView robot;
+    
     
     @FXML
     private void retour() {
@@ -89,6 +95,9 @@ public class MorpionGridAIController {
     
     @FXML
     private void initialize() {
+    	
+    	logo.setImage(new Image(getClass().getResourceAsStream("Images/logoMorpionBlack.png")));
+    	robot.setImage(new Image(getClass().getResourceAsStream("Images/robot.png")));
     	
     	//gérer les effets sur le boutons
 		

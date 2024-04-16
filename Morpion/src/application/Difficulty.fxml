@@ -27,7 +27,7 @@
                   <HBox prefHeight="100.0" prefWidth="200.0" />
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20; " text="Choix de la difficulté :" textAlignment="CENTER" wrappingWidth="431.6708984375" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20; -fx-font-weight: bold;" text="Choix de la difficulté :" textAlignment="CENTER" wrappingWidth="431.6708984375" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" />
