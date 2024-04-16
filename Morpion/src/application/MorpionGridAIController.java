@@ -99,6 +99,154 @@ public class MorpionGridAIController {
     		btnRetour.setOpacity(1.0);
         });
     	
+    	
+    	//effets surlignage sur les cases
+    	
+    	cell00Image.setOnMouseEntered(e -> {
+       		if (grid[0][0] != 'X' && grid[0][0] != 'O') {
+	       		cell00Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell00Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell00Image.setOnMouseExited(e -> {
+       		if (grid[0][0] != 'X' && grid[0][0] != 'O') {
+       			cell00Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell01Image.setOnMouseEntered(e -> {
+       		if (grid[0][1] != 'X' && grid[0][1] != 'O') {
+	       		cell01Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell01Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell01Image.setOnMouseExited(e -> {
+       		if (grid[0][1] != 'X' && grid[0][1] != 'O') {
+       			cell01Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell02Image.setOnMouseEntered(e -> {
+       		if (grid[0][2] != 'X' && grid[0][2] != 'O') {
+	       		cell02Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell02Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell02Image.setOnMouseExited(e -> {
+       		if (grid[0][2] != 'X' && grid[0][2] != 'O') {
+       			cell02Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell10Image.setOnMouseEntered(e -> {
+       		if (grid[1][0] != 'X' && grid[1][0] != 'O') {
+	       		cell10Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell10Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell10Image.setOnMouseExited(e -> {
+       		if (grid[1][0] != 'X' && grid[1][0] != 'O') {
+       			cell10Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell11Image.setOnMouseEntered(e -> {
+       		if (grid[1][1] != 'X' && grid[1][1] != 'O') {
+	       		cell11Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell11Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell11Image.setOnMouseExited(e -> {
+       		if (grid[1][1] != 'X' && grid[1][1] != 'O') {
+       			cell11Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell12Image.setOnMouseEntered(e -> {
+       		if (grid[1][2] != 'X' && grid[1][2] != 'O') {
+	       		cell12Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell12Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell12Image.setOnMouseExited(e -> {
+       		if (grid[1][2] != 'X' && grid[1][2] != 'O') {
+       			cell12Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell20Image.setOnMouseEntered(e -> {
+       		if (grid[2][0] != 'X' && grid[2][0] != 'O') {
+	       		cell20Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell20Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell20Image.setOnMouseExited(e -> {
+       		if (grid[2][0] != 'X' && grid[2][0] != 'O') {
+       			cell20Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell21Image.setOnMouseEntered(e -> {
+       		if (grid[2][1] != 'X' && grid[2][1] != 'O') {
+	       		cell21Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell21Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell21Image.setOnMouseExited(e -> {
+       		if (grid[2][1] != 'X' && grid[2][1] != 'O') {
+       			cell21Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+       	
+       	
+       	cell22Image.setOnMouseEntered(e -> {
+       		if (grid[2][2] != 'X' && grid[2][2] != 'O') {
+	       		cell22Image.setImage(new Image(getClass().getResourceAsStream("Images/transparentHighlight.png")));
+	       		FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cell22Image);
+	            fadeTransition.setFromValue(0.0);
+	            fadeTransition.setToValue(1.0);
+	            fadeTransition.play();
+       		}
+           });
+       	cell22Image.setOnMouseExited(e -> {
+       		if (grid[2][2] != 'X' && grid[2][2] != 'O') {
+       			cell22Image.setImage(new Image(getClass().getResourceAsStream("Images/transparent.png")));
+       		}
+           });
+    	
+    	
+    	
         // Initialisation de la grille avec des cases vides ('\0')
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
