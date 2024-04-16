@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.scene.layout.AnchorPane;
 import java.net.URL;
@@ -33,6 +35,9 @@ public class Main extends Application implements Initializable {
     @FXML
     private Button humanVsAI;
     
+    @FXML
+    private ImageView logo;
+    
     
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +56,8 @@ public class Main extends Application implements Initializable {
     	humanVsAI.setOnMouseExited(e -> {
     		humanVsAI.setOpacity(1.0);
         });
+    	
+    	logo.setImage(new Image(getClass().getResourceAsStream("Images/logoMorpion.png")));
     }
     
 

@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="700.0" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main" style="-fx-background-color: #240c76;" >
+<BorderPane maxHeight="1500" maxWidth="1500" minHeight="400.0" minWidth="700.0" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #240c76;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
    <top>
       <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
         <menus>
@@ -21,13 +23,14 @@
       </MenuBar>
    </top>
    <center>
-      <VBox alignment="CENTER" spacing="20">
-         <Button fx:id="humanVsHuman" onAction="#startHumanVsHumanGame" text="Humain contre humain" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20; " prefWidth="250" />
-         <Button fx:id="humanVsAI" onAction="#chooseDifficulty" text="Humain vs IA" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20;" prefWidth="250" />
+      <VBox alignment="CENTER" prefHeight="317.0" prefWidth="700.0" spacing="20">
+         <ImageView fx:id="logo" fitHeight="127.0" fitWidth="572.0" pickOnBounds="true" preserveRatio="true" />
+         <HBox prefHeight="0.0" prefWidth="700.0" />
+         <Button fx:id="humanVsHuman" onAction="#startHumanVsHumanGame" prefWidth="250" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20; " text="Humain contre humain" />
+         <Button fx:id="humanVsAI" onAction="#chooseDifficulty" prefWidth="250" style="-fx-background-color: #831187; -fx-text-fill: white; -fx-font-size: 14pt; -fx-padding: 10 20;" text="Humain contre IA" />
       </VBox>
    </center>
   
       
    
 </BorderPane>
-
