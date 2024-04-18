@@ -1,5 +1,6 @@
 package application;
 
+import ai.*;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +15,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ai.MultiLayerPerceptron;
-import ai.Coup;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -355,13 +355,22 @@ public class MorpionGridAIController {
         ButtonType retourMenuButton = new ButtonType("Retour au menu", ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().add(retourMenuButton);
 
+        ButtonType retourDifficulteButton = new ButtonType("Changer Difficulté", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().add(retourDifficulteButton);
+
         Button retourMenu = (Button) alert.getDialogPane().lookupButton(retourMenuButton);
         retourMenu.setOnAction(event -> {
-        	retourAuMenu();
+            retourAuMenu();
+        });
+
+        Button retourDifficulte = (Button) alert.getDialogPane().lookupButton(retourDifficulteButton);
+        retourDifficulte.setOnAction(event -> {
+            retourAuDifficulte();
         });
         
         alert.showAndWait();
     }
+
 
     private void resetGame() {
         initialize();
@@ -502,6 +511,25 @@ public class MorpionGridAIController {
     private void retourAuMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainStage.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            
+            Scene currentScene = cell00Image.getScene();
+            
+            Stage currentStage = (Stage) currentScene.getWindow();
+            currentStage.close();
+            
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void retourAuDifficulte() {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Difficulty.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             

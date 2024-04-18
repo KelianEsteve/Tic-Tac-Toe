@@ -41,7 +41,7 @@ public class LearningTask extends Task<MultiLayerPerceptron> {
     protected MultiLayerPerceptron call() throws Exception {
         if (verbose) {
             System.out.println();
-            System.out.println("START TRAINING ...");
+            updateMessage("Démarrage de l'entrainement");
             System.out.println();
         }
 
@@ -57,7 +57,7 @@ public class LearningTask extends Task<MultiLayerPerceptron> {
 
         if (verbose) {
             System.out.println("---");
-            System.out.println("Load data ...");
+            updateMessage("Load data ...");
             System.out.println("---");
         }
 

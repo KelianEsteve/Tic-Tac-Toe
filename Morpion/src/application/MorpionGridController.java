@@ -315,6 +315,11 @@ public class MorpionGridController {
                 currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
                 updateTurnLabel();
             }
+            
+            if (checkForDraw()) {
+                showAlert("Match nul !");
+                resetGame();
+            }
         }
     }
 
@@ -345,6 +350,17 @@ public class MorpionGridController {
         }
         
         return false;
+    }
+    
+    private boolean checkForDraw() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (grid[row][col] == '\0') {
+                    return false;
+                }
+            }
+        }
+        return !checkForWinner('X') && !checkForWinner('O');
     }
 
 
@@ -396,7 +412,6 @@ public class MorpionGridController {
     	gridPlayer.setOnEndOfMedia(() -> {
     	    gridPlayer.stop(); // Arrête la lecture
     	    gridPlayer.seek(Duration.ZERO); // Remet la tête de lecture au début
-    	    // Vous pouvez ajouter d'autres actions ici, selon vos besoins
     	});
     	
     	gridPlayer.play();

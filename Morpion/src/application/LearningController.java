@@ -1,5 +1,8 @@
 package application;
 
+import ai.*;
+import javafx.application.Platform;
+
 import java.io.BufferedReader;
 import javafx.scene.text.Text;
 import java.io.File;
@@ -27,6 +30,7 @@ import javafx.concurrent.Task;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 public class LearningController implements Initializable {
 	
@@ -104,7 +108,7 @@ public class LearningController implements Initializable {
     public void lauchTraining() {
         try {
             // LOAD DATA ...
-        	updateText("Chargement des Données !");
+        
 
             HashMap<Integer, Coup> coups = loadGames("./resources/dataset/Tic_tac_initial_results.csv");
             saveGames(coups, "./resources/train_dev_test/", 0.7);
@@ -115,12 +119,12 @@ public class LearningController implements Initializable {
             cfl.loadConfigFile("./resources/config.txt");
             Config config = cfl.get(this.difficulty);
            
-
+            updateText("Entrainement De L'IA !");
             // TRAIN THE MODEL ...
             double epochs = 10000;
             HashMap<Integer, Coup> mapTrain = loadCoupsFromFile("./resources/train_dev_test/train.txt");
             
-            updateText("Entrainement de l'IA !");
+            //updateText("Entrainement de l'IA !");
             LearningTask learningTask = new LearningTask(mapTrain, 9, config.hiddenLayerSize, config.learningRate, config.numberOfhiddenLayers, true, epochs, progressBar);
             progressBar.progressProperty().bind(learningTask.progressProperty());
 

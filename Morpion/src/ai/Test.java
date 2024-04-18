@@ -24,7 +24,7 @@ public class Test {
 			//
 			ConfigFileLoader cfl = new ConfigFileLoader();
 			cfl.loadConfigFile("./resources/config.txt");
-			Config config = cfl.get("F");
+			Config config = cfl.get("D");
 			System.out.println("Test.main() : "+config);
 			//
 			//TRAIN THE MODEL ...
@@ -79,7 +79,7 @@ public class Test {
 				System.out.println("---");
 			}
 			//TRAINING ...
-			for(int i = 1; i < epochs; i++){
+			for(int i = 0; i < epochs; i++){
 
 				Coup c = null ;
 				while ( c == null )
@@ -88,7 +88,7 @@ public class Test {
 				error += net.backPropagate(c.in, c.out);
 
 				if ( i % 10000 == 0 && verbose) System.out.println("Error at step "+i+" is "+ (error/(double)i));
-		
+				System.out.println("Epoch: " + i);
 			}
 			if ( verbose ) 
 				System.out.println("Learning completed!");
