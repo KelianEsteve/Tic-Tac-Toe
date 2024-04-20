@@ -176,7 +176,7 @@ public class SettingsController implements Initializable {
 	    SettingsController controller = loader.getController();
 	    Stage settingsStage = new Stage();
 	    settingsStage.setScene(new Scene(settingsRoot, 500, 300));
-	    settingsStage.setTitle("Settings");
+	    settingsStage.setTitle("Paramètres");
 	    settingsStage.show();
 	    
 	    controller.getContent();
